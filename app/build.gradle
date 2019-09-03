@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.moontasirul.codebasedesignpattern"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    implementation 'androidx.navigation:navigation-ui:2.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.0.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.0.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.0.0-rc01'
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+
+
+    final RETROFIT_VERSION = '2.3.0'
+    final DAGGER_VERSION = '2.15'
+    final LOTTIE_ANDROID_VERSION = '2.5.4'
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$DAGGER_VERSION"
+    implementation "com.google.dagger:dagger-android-support:$DAGGER_VERSION"
+    annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$DAGGER_VERSION"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+
+
+//Lottie Animation view
+    implementation "com.airbnb.android:lottie:$LOTTIE_ANDROID_VERSION"
+    implementation 'org.jetbrains:annotations:15.0'
+}

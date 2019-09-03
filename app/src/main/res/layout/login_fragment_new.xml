@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rootView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="123dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.485"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--<include-->
+            <!--android:id="@+id/include"-->
+            <!--layout="@layout/login_card"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="14dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginEnd="14dp"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/imageView" />-->
+
+
+            <ImageView
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/go_btn_shape"
+                android:elevation="6dp"
+                android:onClick="@{(v)->loginRegistrationViewModel.loginOnClick(v)}"
+                android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                android:text="Go"
+                android:textColor="@color/colorTextWhite"
+                app:layout_constraintEnd_toEndOf="@+id/include"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/include"
+                app:layout_constraintTop_toBottomOf="@+id/include" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/include"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="14dp"
+                android:elevation="4dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/root_login"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{(v)->loginRegistrationViewModel.loginViewOnclick(v)}"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Login"
+                                android:textSize="20sp" />
+
+
+                            <View
+                                android:id="@+id/view_signin"
+                                android:layout_width="55dp"
+                                android:layout_height="3dp"
+                                android:layout_gravity="center"
+                                android:background="@color/colorPrimary"
+                                android:visibility="visible" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/root_signup"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{(v)->loginRegistrationViewModel.registrationViewOnclick(v)}"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="SignUP"
+                                android:textSize="20sp" />
+
+                            <View
+                                android:id="@+id/view_signup"
+                                android:layout_width="65dp"
+                                android:layout_height="3dp"
+                                android:layout_gravity="center"
+                                android:background="@color/colorPrimary"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_text" />
+
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textInputLayout_user_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="14dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/text_field_background_rounded"
+                            android:drawableLeft="@drawable/ic_account_box_black_24dp"
+                            android:drawablePadding="3dp"
+                            android:hint="User Name"
+                            android:inputType="text"
+                            android:maxLength="25"
+                            android:maxLines="1"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text="@={loginRegistrationViewModel.userName}"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textInputLayout_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/text_field_background_rounded"
+                            android:drawableLeft="@drawable/ic_lock_black_24dp"
+                            android:drawablePadding="3dp"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:maxLength="20"
+                            android:maxLines="1"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text="@={loginRegistrationViewModel.password}"
+                            app:layout_constraintEnd_toEndOf="@+id/textInputLayout_std_id"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/textInputLayout_std_id"
+                            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_std_id" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textInputLayout_confirm_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="24dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@drawable/text_field_background_rounded"
+                            android:drawableLeft="@drawable/ic_lock_black_24dp"
+                            android:drawablePadding="3dp"
+                            android:hint="Confirm Password"
+                            android:inputType="textPassword"
+                            android:maxLength="20"
+                            android:maxLines="1"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text="@={loginRegistrationViewModel.confirmPassword}"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/textInputLayout_password"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/textInputLayout_password"
+                            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_password" />
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textInputLayout_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/text_field_background_rounded"
+                            android:drawableLeft="@drawable/ic_email_black_24dp"
+                            android:drawablePadding="3dp"
+                            android:hint="Email ID"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="25"
+                            android:maxLines="1"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text="@={loginRegistrationViewModel.userEmail}"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="@+id/textInputLayout_user_name"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/textInputLayout_user_name"
+                            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_user_name" />
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textInputLayout_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/text_field_background_rounded"
+                            android:drawableLeft="@drawable/ic_contact_phone_black_24dp"
+                            android:drawablePadding="3dp"
+                            android:hint="Phone No."
+                            android:inputType="phone"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text="@={loginRegistrationViewModel.userPhone}"
+                            app:layout_constraintEnd_toEndOf="@+id/textInputLayout_email"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/textInputLayout_email"
+                            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_email" />
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textInputLayout_std_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/text_field_background_rounded"
+                            android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                            android:drawablePadding="3dp"
+                            android:hint="Student ID"
+                            android:inputType="text"
+                            android:maxLength="20"
+                            android:maxLines="1"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text="@={loginRegistrationViewModel.stdId}"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="@+id/textInputLayout_phone"
+                            app:layout_constraintHorizontal_bias="0.333"
+                            app:layout_constraintStart_toStartOf="@+id/textInputLayout_phone"
+                            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_phone"
+                            app:layout_constraintVertical_bias="0.029" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="loginRegistrationViewModel"
+            type="com.moontasirul.codebasedesignpattern.ui.login.LoginRegistrationViewModel" />
+    </data>
+
+
+</layout>
+
